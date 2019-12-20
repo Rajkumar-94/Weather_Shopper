@@ -4,9 +4,7 @@ import time
 def launch_webpage():
     global driver
     driver = webdriver.Chrome()
-    # Maximize the browser window
     driver.maximize_window()
-    # Navigate to Qxf2 Tutorial page
     driver.get("https://weathershopper.pythonanywhere.com/sunscreen")
 
 def add_products_to_cart():
