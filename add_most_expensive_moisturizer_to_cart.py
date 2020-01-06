@@ -1,6 +1,6 @@
 """
 The script is an example of weather shopper
-This Selenium Python code will select the most expensive Sunscreen product and adds it to the cart and takes the screenshot of the added Product
+This Selenium Python code will selects the most expensive Moistuzier product and adds it to the cart and takes the screenshot of the added Product
 
 """
 
@@ -13,7 +13,7 @@ def launch_webpage():
     global driver
     driver = webdriver.Chrome()
     driver.maximize_window()
-    driver.get("https://weathershopper.pythonanywhere.com/sunscreen")
+    driver.get("https://weathershopper.pythonanywhere.com/moisturizer")
 
 def add_expensive_product_to_cart():
     "This function extracts the price of each product, take selects the expensive value, prints the expensive item name and add it to the cart"
@@ -43,7 +43,7 @@ if __name__ == "__main__":
     launch_webpage()
     time.sleep(2)
 
-    #This calling function will add the expensive product to the cart.
+    #This calling function will add the expensive moisturizer product to the cart.
     add_expensive_product_to_cart()
 
     #This calling function will clcik and take screenshot of the products added to the cart.
