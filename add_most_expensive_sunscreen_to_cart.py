@@ -43,7 +43,7 @@ if __name__ == "__main__":
     launch_webpage()
     time.sleep(2)
 
-    #This calling function will add the least priced Aloe product to the cart.
+    #This calling function will add the expensive product to the cart.
     add_expensive_product_to_cart()
 
     #This calling function will clcik and take screenshot of the products added to the cart.
