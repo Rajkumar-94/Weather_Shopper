@@ -14,7 +14,7 @@ def launch_webpage():
     driver.maximize_window()
     driver.get("https://weathershopper.pythonanywhere.com/moisturizer")
     
-def add_aloe_product_with_least_price_to_cart():
+def add_aloe_product_with_least_price_to_cart(driver):
     "This function extracts only the Aloe products and adds the least costed Aloe product to the cart"
     price_mois=[]
     aloe_products=driver.find_elements_by_xpath("//p[contains(text(),'Aloe')]/following-sibling::p")
@@ -32,7 +32,7 @@ def add_aloe_product_with_least_price_to_cart():
     driver.find_element_by_xpath("//p[contains(text(),'Aloe')]/following-sibling::p[contains(text(),'%d')]/following-sibling::button"%min_value).click()
     
 
-def add_almond_product_with_least_price_to_cart():
+def add_almond_product_with_least_price_to_cart(driver):
     "This function extracts only the Amond products and adds the least costed Aloe product to the cart"
     price_mois=[]
     almond_products=driver.find_elements_by_xpath("//p[contains(text(),'almond') or contains(text(),'Almond')]/following-sibling::p")
@@ -59,10 +59,10 @@ if __name__ == "__main__":
     launch_webpage()
     time.sleep(2)
     #This calling function will add the least priced Aloe product to the cart.
-    add_aloe_product_with_least_price_to_cart()
+    add_aloe_product_with_least_price_to_cart(driver)
 
     #This calling function will add the least priced Almond product to the cart.
-    add_almond_product_with_least_price_to_cart()
+    add_almond_product_with_least_price_to_cart(driver)
 
     #This Step will click and the cart button and take a Screenshot of the cart items
     cart=driver.find_element_by_xpath("//span[@id='cart']").click()
