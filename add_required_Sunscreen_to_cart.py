@@ -5,6 +5,7 @@ This Selenium Python code will select the least priced Sunscreen "SPF-50" and "S
 """
 
 from selenium import webdriver
+
 import time
 
 def launch_webpage():
@@ -15,7 +16,7 @@ def launch_webpage():
     driver.get("https://weathershopper.pythonanywhere.com/sunscreen")
     driver.save_screenshot('Product_list.png')
 
-def add_SPF_50_product_with_least_price_to_cart():
+def add_SPF_50_product_with_least_price_to_cart(driver):
     "This function extracts only the SPF-50 products and adds the least priced SPF-50 product to the cart"
     spf_50_price=[]
     sunscreen_spf_50_products=driver.find_elements_by_xpath("//p[contains(text(),'SPF-50') or contains(text(),'spf-50')]/following-sibling::p")
@@ -32,7 +33,7 @@ def add_SPF_50_product_with_least_price_to_cart():
     print("The least costed Sunscreen SPF-50 Product is: ",sunscreen_sp5_50_product_with_min_price.text)
     driver.find_element_by_xpath("//p[contains(text(),'%d')]/following-sibling::button"%min_value).click()
 
-def add_SPF_30_product_with_least_price_to_cart():
+def add_SPF_30_product_with_least_price_to_cart(driver):
     "This function extracts only the SPF-30 products and adds the least priced SPD-30 product to the cart"
     spf_30_price=[]
     sunscreen_spf_30_products=driver.find_elements_by_xpath("//p[contains(text(),'SPF-30') or contains(text(),'spf-30')]/following-sibling::p")
@@ -54,7 +55,8 @@ def close_webpage():
     driver.quit()
 
 def click_cart():
-    cart=driver.find_element_by_xpath("//span[@id='cart']").click()
+    "This funcion will navigate to cart screen and takes a screenshot"
+    driver.find_element_by_xpath("//span[@id='cart']").click()
     driver.save_screenshot("cart.png")
 
 if __name__ == "__main__":
@@ -63,10 +65,10 @@ if __name__ == "__main__":
     time.sleep(2)
 
     #This calling function will add the least priced SPF_50_product to the cart.
-    add_SPF_50_product_with_least_price_to_cart()
+    add_SPF_50_product_with_least_price_to_cart(driver)
 
     #This calling function will add the least priced SPF_30_product to the cart.
-    add_SPF_30_product_with_least_price_to_cart()
+    add_SPF_30_product_with_least_price_to_cart(driver)
 
     #This calling function will click on the cart button so that we can view the cart items.
     click_cart()
