@@ -1,6 +1,6 @@
 """
 The script is an example of weather shopper
-This Selenium Python code will select all the moisturizer items to the cart
+This Selenium Python code will select all the sunscreen items to the cart
 
 """
 
@@ -10,15 +10,14 @@ import time
 def launch_webpage():
     "This function launches the website and navigates the provided URL"
     global driver
-    driver = webdriver.Firefox()
+    driver = webdriver.Chrome()
     driver.maximize_window()
-    driver.get("https://weathershopper.pythonanywhere.com/moisturizer")
+    driver.get("https://weathershopper.pythonanywhere.com/sunscreen")
 
 def add_products_to_cart():
     "This function adds the available products to the cart"
-    container=driver.find_element_by_xpath("//div[contains(@class,'container')]/div[descendant::div[contains(@class,'text-center col-4')]]")
+    container=driver.find_element_by_xpath("//div[contains(@class,'container')]/div[descendant::div[contains(@class,'text-center')]]")
     no_of_buttons=container.find_elements_by_xpath("//button[contains(text(),'Add')]")
-    #container=driver.find_element_by_class_name('container')
     #container=driver.find_element_by_xpath("//div[@class='container']")
     #no_of_buttons=container.find_elements_by_xpath("//div/div/descendant::button")
     #print(len(no_of_buttons))
