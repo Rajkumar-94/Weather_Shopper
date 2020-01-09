@@ -6,8 +6,8 @@ Completes the payment, takes the card details from the conf file and completes t
 
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-import add_required_moisturizer_to_cart
-import add_required_Sunscreen_to_cart
+import test_to_add_required_moisturizer_to_cart
+import test_to_add_required_Sunscreen_to_cart
 import time
 import conf
 
@@ -40,8 +40,8 @@ def choose_product_based_on_climate():
             print("Fail:Did not navigated to Moistursizers page")
         
         #This is the calling functions, which calls functions from the imported file to add least moisturizers product to the cart.
-        add_required_moisturizer_to_cart.add_almond_product_with_least_price_to_cart(driver)
-        add_required_moisturizer_to_cart.add_aloe_product_with_least_price_to_cart(driver)
+        test_to_add_required_moisturizer_to_cart.add_almond_product_with_least_price_to_cart(driver)
+        test_to_add_required_moisturizer_to_cart.add_aloe_product_with_least_price_to_cart(driver)
 
     elif temp>34:
         driver.find_element_by_xpath("//button[contains(text(),'sunscreens')]").click()
@@ -52,8 +52,8 @@ def choose_product_based_on_climate():
             print("Fail:Did not navigated to Sunscreens page")
 
         #This is the calling functions, which calls functions from the imported file to add least sunscreens product to the cart.
-        add_required_Sunscreen_to_cart.add_SPF_50_product_with_least_price_to_cart(driver)
-        add_required_Sunscreen_to_cart.add_SPF_30_product_with_least_price_to_cart(driver)
+        test_to_add_required_Sunscreen_to_cart.add_SPF_50_product_with_least_price_to_cart(driver)
+        test_to_add_required_Sunscreen_to_cart.add_SPF_30_product_with_least_price_to_cart(driver)
 
 def click_cart():
     "This function navigates to the cart page, checks the cart total and number of items and takes a screenshot of the cart screen"
