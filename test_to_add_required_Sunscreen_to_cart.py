@@ -5,6 +5,7 @@ This Selenium Python code will select the least priced Sunscreen "SPF-50" and "S
 """
 
 from selenium import webdriver
+from Screenshot import Screenshot_Clipping
 
 import time
 
@@ -57,7 +58,9 @@ def close_webpage():
 def click_cart():
     "This funcion will navigate to cart screen and takes a screenshot"
     driver.find_element_by_xpath("//span[@id='cart']").click()
-    driver.save_screenshot("cart.png")
+    img_url=ob.full_Screenshot(driver, save_path=r'.', image_name='Myimage.png')
+    print(img_url)
+    #driver.save_screenshot("cart.png")
 
 if __name__ == "__main__":
     #This calling function will launch the webpage and navigates to the provided url.
